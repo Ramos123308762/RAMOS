@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Nosotros, Mi Amor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 1px 1px 5px #ff69b4;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 3px #ff69b4;
+    }
+
+    .contenedor-foto {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .foto {
+      max-width: 90%;
+      width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: aparecer 1.5s ease-in-out;
+      z-index: 2;
+    }
+
+    .corazon {
+      position: absolute;
+      font-size: 2em;
+      color: #ff4d6d;
+      animation: flotar 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    .corazon:nth-child(1) { left: -40px; animation-delay: 0s; }
+    .corazon:nth-child(2) { right: -40px; animation-delay: 1s; }
+    .corazon:nth-child(3) { left: -20px; animation-delay: 2s; }
+    .corazon:nth-child(4) { right: -20px; animation-delay: 3s; }
+
+    @keyframes flotar {
+      0% { transform: translateY(100px) scale(1); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+    }
+
+    .boton {
+      background-color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .boton:hover {
+      background-color: #ffe0f0;
+    }
+
+    .carta {
+      display: none;
+      background: #fff;
+      color: #222;
+      font-weight: bold;
+      font-size: 1.1em;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: left;
+      animation: aparecer 0.5s ease-in-out;
+      margin-top: 10px;
+    }
+
+    @keyframes aparecer {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #fff8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Para nosotros, mi amor</h1>
+  <p>Gracias por hacer mi vida más hermosa con tu amor. Esta imagen guarda momentos que siempre vivirán en mi corazón.</p>
+
+  <div class="contenedor-foto">
+    <div class="corazon">❤️</div>
+    <div class="corazon">💗</div>
+    <div class="corazon">💖</div>
+    <div class="corazon">💘</div>
+    <img src="nosotros.jpg" alt="Foto de nosotros" class="foto">
+  </div>
+
+  <button class="boton" id="btnMusica" onclick="toggleMusica()">🔈 Encender Música</button>
+  <button class="boton" id="btnCarta" onclick="toggleCarta()">💌 Ver Carta</button>
+
+  <div id="carta" class="carta">
+    <h2>Querida mía,</h2>
+    <h2>
+      Quiero que sepas lo feliz que soy de compartir esta vida contigo. Cada sonrisa, cada mirada, cada abrazo que me das
+      es un regalo que atesoro con todo mi ser.
+    </h2>
+    <h2>
+      Esta página es solo una pequeña muestra del amor inmenso que tengo por ti. ¡Te amo con cada latido de mi corazón!
+    </h2>
+    <h2>
+      Para siempre juntos 💞
+    </h2>
+  </div>
+
+  <footer>
+    Hecho con amor por tu persona favorita 🥰
+  </footer>
+
+  <audio id="musica" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML.
+  </audio>
+
+  <script>
+    let musicaActiva = false;
+    let cartaVisible = false;
+
+    function toggleMusica() {
+      const musica = document.getElementById("musica");
+      const boton = document.getElementById("btnMusica");
+
+      if (!musicaActiva) {
+        musica.play();
+        boton.textContent = "🔇 Apagar Música";
+      } else {
+        musica.pause();
+        boton.textContent = "🔈 Encender Música";
+      }
+
+      musicaActiva = !musicaActiva;
+    }
+
+    function toggleCarta() {
+      const carta = document.getElementById("carta");
+      const boton = document.getElementById("btnCarta");
+
+      if (!cartaVisible) {
+        carta.style.display = "block";
+        boton.textContent = "💌 Ocultar Carta";
+      } else {
+        carta.style.display = "none";
+        boton.textContent = "💌 Ver Carta";
+      }
+
+      cartaVisible = !cartaVisible;
+    }
+  </script>
+
+</body>
+</html>
